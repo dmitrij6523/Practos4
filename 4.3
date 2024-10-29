@@ -1,0 +1,35 @@
+Console.Write("Введите количество элементов в наборе: ");
+int N = int.Parse(Console.ReadLine());
+
+List<int> numbers = new List<int>();
+Console.WriteLine("Введите элементы набора:");
+for (int i = 0; i < N; i++)
+    {
+        numbers.Add(int.Parse(Console.ReadLine()));
+    }
+
+int firstZeroIndex = -1;
+int secondLastZeroIndex = -1;
+
+for (int i = 0; i < numbers.Count; i++)
+    {
+        if (numbers[i] == 0)
+        {
+            secondLastZeroIndex = firstZeroIndex;
+            firstZeroIndex = i;
+        }
+    }
+
+if (firstZeroIndex == -1 || secondLastZeroIndex == -1)
+    {
+        Console.WriteLine("В наборе недостаточно нулей.");
+        return;
+    }
+
+int sum = 0;
+for (int i = secondLastZeroIndex + 1; i < firstZeroIndex; i++)
+    {
+        sum += numbers[i];
+    }
+
+Console.WriteLine("Сумма чисел между последними двумя нулями: " + sum);
