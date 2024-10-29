@@ -1,0 +1,17 @@
+Console.Write("Введите целое число N (>0): ");
+int N = int.Parse(Console.ReadLine());
+if (N <= 0)
+
+    {
+        Console.WriteLine("Число должно быть больше нуля.");
+        return;
+    }
+Console.WriteLine("Цифры числа, начиная с самой правой:");
+
+while (N > 0)
+
+    {
+        int digit = N % 10;
+        Console.Write($"{digit}, "); 
+        N = N / 10;
+    }
